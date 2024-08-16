@@ -1,17 +1,10 @@
-import React from 'react'
+import React from 'react';
+import ReactMarkdown from 'react-markdown';
 
 function CodeExample() {
-  return (
-    <div className="bg-gray-800 rounded-lg p-6 shadow-lg ">
-      <h1 className='text-slate-300 text-2xl font-medium pt-10 px-2'>
-        Code Examples
-      </h1>
-      <h1 className='text-xl font-semibold text-slate-400 mt-8 pb-2 px-2'>
-        Python
-      </h1>
-      <div className="border border-slate-700 p-4 rounded px-2">
-        <pre className="text-gray-100">
-{`import requests
+  const pythonCode = `
+\`\`\`python
+import requests
 API_KEY = "your_api_key_here"
 API_ENDPOINT = "https://tryBookAI.com/api/generate-book"
 headers = {
@@ -30,15 +23,13 @@ if response.status_code == 200:
     result = response.json()
     print(f"Book generation started. Job ID: {result['job_id']}")
 else:
-    print(f"Error: {response.status_code} - {response.text}")`}
-        </pre>
-      </div>
-      <h1 className='text-xl font-semibold text-slate-400 mt-8 pb-2 px-2'>
-        JavaScript (Node.js)
-      </h1>
-      <div className="border border-slate-700 p-4 rounded px-2">
-        <pre className="text-gray-100">
-{`const axios = require('axios');
+    print(f"Error: {response.status_code} - {response.text}")
+\`\`\`
+`;
+
+  const jsCode = `
+\`\`\`javascript
+const axios = require('axios');
 const API_KEY = 'your_api_key_here';
 const API_ENDPOINT = 'https://tryBookAI.com/api/generate-book';
 const headers = {
@@ -58,11 +49,31 @@ axios.post(API_ENDPOINT, data, { headers })
     })
     .catch(error => {
         console.error('Error:', error.response ? error.response.data : error.message);
-    });`}
-        </pre>
+    });
+\`\`\`
+`;
+
+  return (
+    <div className="bg-gray-800 rounded-lg p-6 shadow-lg">
+      <h1 className='text-slate-300 text-2xl font-medium pt-10 px-2'>
+        Code Examples
+      </h1>
+      <h2 className='text-xl font-semibold text-slate-400 mt-8 pb-2 px-2'>
+        Python
+      </h2>
+      <div className="border border-slate-700 p-4 rounded px-2 overflow-x-auto">
+        <ReactMarkdown className="text-gray-100 text-sm sm:text-base break-words">{pythonCode}</ReactMarkdown>
+      </div>
+      <h2 className='text-xl font-semibold text-slate-400 mt-8 pb-2 px-2'>
+        JavaScript (Node.js)
+      </h2>
+      <div className="border border-slate-700 p-4 rounded px-2 overflow-x-auto">
+        <ReactMarkdown className="text-gray-100 text-sm sm:text-base break-words">
+          {jsCode}
+        </ReactMarkdown>
       </div>
     </div>
-  )
+  );
 }
 
-export default CodeExample
+export default CodeExample;
