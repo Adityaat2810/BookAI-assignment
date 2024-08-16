@@ -1,10 +1,10 @@
 import React from 'react';
-import { OverviewCard } from '../components/pricingComponents/overview-card';
-import { AuthComponet } from '../components/pricingComponents/auth-component';
-import { ApiPricingComponent } from '../components/pricingComponents/api-pricing';
-import TutorialComponet from '../components/pricingComponents/tutorial';
-import { EndpointsComponent } from '../components/pricingComponents/endpoint-componet';
-import CodeExample from '../components/pricingComponents/code-example';
+import { OverviewCard } from '../components/pricePage-components/overview-card';
+import { AuthComponet } from '../components/pricePage-components/auth-component';
+import { ApiPricingComponent } from '../components/pricePage-components/api-pricing';
+import TutorialComponet from '../components/pricePage-components/tutorial';
+import { EndpointsComponent } from '../components/pricePage-components/endpoint-componet';
+import CodeExample from '../components/pricePage-components/code-example';
 
 function Pricing() {
   return (

@@ -1,9 +1,11 @@
 import React from 'react';
 
+
 export function ApiPricingComponent() {
+ 
   return (
     <div className="bg-gray-800 rounded-lg p-6 shadow-lg text-gray-300">
-      <h2 className="text-2xl font-semibold text-gray-200 pt-10 mb-1">API Pricing</h2>
+      <h2 className="text-2xl font-semibold text-gray-200 pt-10 mb-1" >API Pricing</h2>
       <p className="mb-4">
         Our API pricing is based on the model used and the number of tokens processed. Here's a breakdown of the costs:
       </p>
