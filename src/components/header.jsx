@@ -56,6 +56,8 @@ export const Header = () => {
           PRICING
         </button>
       </nav>
+
+
     </header>
   );
 };
