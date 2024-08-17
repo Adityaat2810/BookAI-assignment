@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,6 +19,13 @@ export const Header = () => {
     };
   }, []);
 
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <header className="w-full sticky top-0 z-10">
       {!isScrolled && (
@@ -31,24 +37,24 @@ export const Header = () => {
       )}
 
       <nav className="bg-[#1e1f2e] text-gray-300 py-7 flex flex-col sm:flex-row justify-center sm:space-x-8 space-y-4 sm:space-y-0 items-center">
-        <Link to="/overview" className="text-sm hover:text-white transition-colors duration-200">
+        <button onClick={() => scrollToSection('overview')} className="text-sm hover:text-white transition-colors duration-200">
           OVERVIEW
-        </Link>
-        <Link to="/authentication" className="text-sm hover:text-white transition-colors duration-200">
+        </button>
+        <button onClick={() => scrollToSection('authentication')} className="text-sm hover:text-white transition-colors duration-200">
           AUTHENTICATION
-        </Link>
-        <Link to="/endpoints" className="text-sm hover:text-white transition-colors duration-200">
+        </button>
+        <button onClick={() => scrollToSection('endpoints')} className="text-sm hover:text-white transition-colors duration-200">
           ENDPOINTS
-        </Link>
-        <Link to="/tutorial" className="text-sm hover:text-white transition-colors duration-200">
+        </button>
+        <button onClick={() => scrollToSection('tutorial')} className="text-sm hover:text-white transition-colors duration-200">
           TUTORIAL
-        </Link>
-        <Link to="/code-examples" className="text-sm hover:text-white transition-colors duration-200">
+        </button>
+        <button onClick={() => scrollToSection('code-examples')} className="text-sm hover:text-white transition-colors duration-200">
           CODE EXAMPLES
-        </Link>
-        <Link to="/pricing" className="text-sm hover:text-white transition-colors duration-200">
+        </button>
+        <button onClick={() => scrollToSection('pricing')} className="text-sm hover:text-white transition-colors duration-200">
           PRICING
-        </Link>
+        </button>
       </nav>
     </header>
   );
